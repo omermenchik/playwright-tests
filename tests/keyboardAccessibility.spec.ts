@@ -6,8 +6,13 @@ test('Search bar becomes visible when activated', async ({ page }) => {
   await home.goto();
   console.log('Homepage loaded');
 
+  // Wait for the search button to be visible and interactable
+  const searchButton = page.getByRole('button', { name: 'Search ⌘ K' });
+  await searchButton.waitFor({ timeout: 7000 }); // Wait up to 7 seconds for the button to appear
+  console.log('Search button is visible');
+
   // Click the search button manually (instead of keyboard shortcut)
-  await page.getByRole('button', { name: 'Search ⌘ K' }).click();
+  await searchButton.click();
   console.log('Triggered search manually');
 
   // Wait for the input to appear
