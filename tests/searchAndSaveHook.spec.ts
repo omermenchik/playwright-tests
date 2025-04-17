@@ -9,7 +9,7 @@ test('React.dev opens search, types query, and clicks first result', async ({ pa
   await home.goto();
   console.log('Homepage loaded');
 
-  // Step 2: Open the search bar (robust locator with partial text)
+  // Step 2: Open the search bar
   const searchButton = page.locator('button:has-text("Search")').first();
   await searchButton.waitFor({ timeout: 15000 });
   await searchButton.click({ force: true });
