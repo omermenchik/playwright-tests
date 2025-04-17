@@ -1,5 +1,5 @@
-// import { test, expect } from '@playwright/test';
-// import { HomePage } from '../pages/HomePage';
+import { test, expect } from '@playwright/test';
+import { HomePage } from '../pages/HomePage';
 
 // test('Search bar becomes visible when activated', async ({ page }) => {
 //   const home = new HomePage(page);
