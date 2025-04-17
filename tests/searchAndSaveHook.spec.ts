@@ -9,8 +9,10 @@ test('React.dev opens search, types query, and clicks first result', async ({ pa
   await home.goto();
   console.log('Homepage loaded');
 
-  // Step 2: Open the search bar
-  await page.getByRole('button', { name: 'Search ⌘ K' }).click();
+  // Step 2: Open the search bar (robust locator with partial text)
+  const searchButton = page.locator('button:has-text("Search")').first();
+  await searchButton.waitFor({ timeout: 15000 });
+  await searchButton.click({ force: true });
   console.log('Search opened');
 
   // Step 3: Type the query
@@ -25,9 +27,9 @@ test('React.dev opens search, types query, and clicks first result', async ({ pa
   console.log('Clicked the search result');
 
   // Step 5: Re-open search
-  const searchIcon = page.getByRole('button', { name: 'Search' });
-  await expect(searchIcon).toBeVisible({ timeout: 5000 });
-  await searchIcon.click();
+  const reopenButton = page.locator('button:has-text("Search")').first();
+  await expect(reopenButton).toBeVisible({ timeout: 5000 });
+  await reopenButton.click({ force: true });
   console.log('Search reopened');
 
   // Step 6: Click the save button for the first result
