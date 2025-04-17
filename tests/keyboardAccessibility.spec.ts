@@ -6,7 +6,7 @@ test('Search bar becomes visible when activated', async ({ page }) => {
   await home.goto();
   console.log('Homepage loaded');
 
-  // Wait for button with partial text "Search"
+  // Wait for a button that contains the word "Search" in its label
   const searchButton = page.locator('button:has-text("Search")');
   await searchButton.first().waitFor({ timeout: 15000 }); // Wait up to 15 seconds
 
