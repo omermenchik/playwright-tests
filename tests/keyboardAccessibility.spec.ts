@@ -7,6 +7,9 @@ test('Search bar becomes visible when activated', async ({ page }) => {
   console.log('Homepage loaded');
 
   // Wait for a button that contains the word "Search" in its label
+  
+  // await page.getByRole('button', { name: 'Search ⌘ K' }).click();
+  // console.log('Search opened');
   const searchButton = page.locator('button:has-text("Search")');
   await searchButton.first().waitFor({ timeout: 15000 }); // Wait up to 15 seconds
 
