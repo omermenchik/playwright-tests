@@ -1,4 +1,4 @@
-# Earnix Playwright Tests
+# Playwright Tests
 
 This project contains a suite of Playwright tests built to validate the functionality and accessibility of the [React.dev](https://react.dev) website.
 
